@@ -23,7 +23,7 @@ app.use('/api', todoRouter);
 
 // Basic route
 app.get("/", (req, res) => {
-  res.json(join(__dirname, "it works"));
+  res.json("it works");
 });
 
 // Start server
