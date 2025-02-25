@@ -16,7 +16,7 @@ console.log("db",process.env.MONGODB_URI)
 // MongoDB Connection
 mongoose
   .connect(
-    `mongodb+srv://averys34:2yjGrnlcqxWJpy0C@todo-list.94gyl.mongodb.net/?retryWrites=true&w=majority&appName=ToDo-List`
+    process.env.MONGODB_URI
   )
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("MongoDB connection error:", err));
