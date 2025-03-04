@@ -1,4 +1,3 @@
-// Add near top of server.js
 app.use(express.static("client"));
 
 import { todoRouter } from "./todos.js";
