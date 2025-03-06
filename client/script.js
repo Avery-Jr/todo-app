@@ -3,9 +3,12 @@ const container = document.getElementsByClassName("container");
 const form = document.getElementsById("todoForm");
 const list = document.getElementsById("todoList");
 
+
 // Fetch all todos when page loads
 async function fetchTodos() {
-  // add your code
+  const api = app.use("/api", todoRouter);
+ let todos = fetch(api);
+
 }
 
 // Display todos in the list
