@@ -6,16 +6,28 @@ const list = document.getElementsById("todoList");
 
 // Fetch all todos when page loads
 async function fetchTodos() {
-  const api = app.use("/api", todoRouter);
- let todos = fetch(api);
+  const todos = router.get;
+try {
+    const response = await fetch(todos);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
 
+    const json = await response.json();
+    console.log(json);
+  } catch (error) {
+    console.error(error.message);
+  }
 }
 
 // Display todos in the list
 function displayTodos(todos) {
-  // add your code
-}
+  const itemList = document.querySelector("#todoList");
+        let listData = [];
+        let listHTML = "";
+        fetch("sever.js");
 
+        }
 // Handle form submission
 todoForm.addEventListener("submit", async (e) => {
   // add your code
