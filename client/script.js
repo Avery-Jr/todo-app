@@ -1,30 +1,51 @@
 // Get DOM HTML Elements
-const container = document.getElementsByClassName("container");
 const form = document.getElementsById("todoForm");
 const list = document.getElementsById("todoList");
-
+const input = document.getElementsById("todoInput");
 
 // Fetch all todos when page loads
 async function fetchTodos() {
-const params = new URLSearchParams();
-params.append("text");
+const url = "api/todo";
+try {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`Response status: ${response.status}`);
+  }
 
-// GET request sent to https://example.org/login?username=example
-const response = await fetch(`res.json(todos)${params}`);
- method: "POST",
-  body = JSON.stringify({ username: "example" });
+  const json = await response.json();
+  console.log(json);
+} catch (error) {
+  console.error(error.message);
+}
 }
 
 // Display todos in the list
 function displayTodos(todos) {
-        let listData = [];
-        let listHTML = "";
-        fetch("todos.js");
+fetch('api/todo');
+then((response) => response.json())
+          .then((data) => {
+            todosData = data.todos;
+            data.todos.forEach((product) => {
+              productHTML += `<li></li>`;
+            });
+          });
+}
 
-        }
 // Handle form submission
 todoForm.addEventListener("submit", async (e) => {
-  // add your code
+ const request1 = new Request('api/todo', {
+   method: "POST",
+   body: JSON.stringify({ username: "example" }),
+ });
+
+ const request2 = request1.clone();
+
+ const response1 = await fetch(request1);
+ console.log(response1.status);
+
+ const response2 = await fetch(request2);
+ console.log(response2.status);
+
 });
 
 // Load todos when page loads
