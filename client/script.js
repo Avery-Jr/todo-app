@@ -5,7 +5,7 @@ const input = document.getElementsById("todoInput");
 
 // Fetch all todos when page loads
 async function fetchTodos() {
-const url = "api/todo";
+const url = "api/todos";
 try {
   const response = await fetch(url);
   if (!response.ok) {
@@ -21,7 +21,7 @@ try {
 
 // Display todos in the list
 function displayTodos(todos) {
-fetch('api/todo');
+fetch('api/todos');
 then((response) => response.json())
           .then((data) => {
             todosData = data.todos;
@@ -33,7 +33,7 @@ then((response) => response.json())
 
 // Handle form submission
 todoForm.addEventListener("submit", async (e) => {
- const request1 = new Request('api/todo', {
+ const request1 = new Request('api/todos', {
    method: "POST",
    body: JSON.stringify({ username: "example" }),
  });
