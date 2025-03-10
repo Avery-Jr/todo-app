@@ -1,5 +1,3 @@
-app.use(express.static("client"));
-
 import { todoRouter } from "./todos.js";
 import express from "express";
 import mongoose from "mongoose";
