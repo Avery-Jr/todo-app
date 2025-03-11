@@ -21,12 +21,19 @@ try {
 
 // Display todos in the list
 function displayTodos(todos) {
-response => response.json().then((data) => {
-    todosData = data.todos;
-    data.todos.forEach((product) => {
-      productHTML += `<li></li>`;
-    });
-  });
+  const listItems = [];
+  let todo = "";
+  for (let i = 0; i < todoss.length; i++) {
+    todo += `
+        <ul id="todoList">
+            <!-- Todos will be inserted here -->
+             <li>${input}</li> 
+             
+        </ul>
+        `;
+  }
+
+  list.innerHTML = todo;
 }
 
 // Handle form submission
