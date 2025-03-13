@@ -33,15 +33,19 @@ function displayTodos(todos) {
 // Handle form submission
 todoForm.addEventListener("submit", async (e) => {
   e.pverventDefult();
-const response = await fetch("https://example.org/post", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/x-www-form-urlencoded",
-  },
-  // Automatically converted to "username=example&password=password"
-  body: JSON.stringify({title: input.value }),
-  // ...
-});
+  try {
+    const response = await fetch("/api/todos", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      // Automatically converted to "username=example&password=password"
+      body: JSON.stringify({ title: input.value }),
+    });
+    fetchTodos();
+  } catch (error) {
+    console.error(error.message);
+  }
 });
 
 // Load todos when page loads
