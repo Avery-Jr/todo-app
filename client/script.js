@@ -32,8 +32,13 @@ function displayTodos(todos) {
 
 // Handle form submission
 todoForm.addEventListener("submit", async (e) => {
-  e.pverventDefult();
-  try {
+  e.preventDefault();
+  const newTodo = {
+    title: input.value,
+  };
+  displayTodos([newTodo]);
+  input.value = "";
+  /* try {
     const response = await fetch("/api/todos", {
       method: "POST",
       headers: {
@@ -45,7 +50,7 @@ todoForm.addEventListener("submit", async (e) => {
     fetchTodos();
   } catch (error) {
     console.error(error.message);
-  }
+  }*/
 });
 
 // Load todos when page loads
