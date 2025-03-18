@@ -2,7 +2,6 @@
 const form = document.getElementById("todoForm");
 const list = document.getElementById("todoList");
 const input = document.getElementById("todoInput");
-
 // Fetch all todos when page loads
 async function fetchTodos() {
   const url = "/api/todos";
@@ -21,7 +20,10 @@ async function fetchTodos() {
 
 // Display todos in the list
 function displayTodos(todos) {
-  let todoHTML = "";
+  let todoArray = [];
+  let todoHTML = ""
+  for( let i = todoHTML; i < todos; i++) {
+    todoArray.unshift(i);}
   todos.forEach((todo) => {
     todoHTML += `
              <li> ${todo.title} </li> 
@@ -36,21 +38,21 @@ todoForm.addEventListener("submit", async (e) => {
   const newTodo = {
     title: input.value,
   };
-  displayTodos([newTodo]);
-  input.value = "";
-  /* try {
+  /* displayTodosTodos([newTodo]);
+  input.value = "";*/
+   try {
     const response = await fetch("/api/todos", {
       method: "POST",
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "application/json",
       },
       // Automatically converted to "username=example&password=password"
-      body: JSON.stringify({ title: input.value }),
+      body: JSON.stringify({newTodo}),
     });
     fetchTodos();
   } catch (error) {
     console.error(error.message);
-  }*/
+  }
 });
 
 // Load todos when page loads
