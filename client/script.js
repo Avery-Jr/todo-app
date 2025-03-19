@@ -20,10 +20,7 @@ async function fetchTodos() {
 
 // Display todos in the list
 function displayTodos(todos) {
-  let todoArray = [];
-  let todoHTML = ""
-  for( let i = todoHTML; i < todos; i++) {
-    todoArray.unshift(i);}
+  let todoHTML = "";
   todos.forEach((todo) => {
     todoHTML += `
              <li> ${todo.title} </li> 
@@ -35,11 +32,6 @@ function displayTodos(todos) {
 // Handle form submission
 todoForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-  const newTodo = {
-    title: input.value,
-  };
-  /* displayTodosTodos([newTodo]);
-  input.value = "";*/
    try {
     const response = await fetch("/api/todos", {
       method: "POST",
@@ -47,13 +39,11 @@ todoForm.addEventListener("submit", async (e) => {
         "Content-Type": "application/json",
       },
       // Automatically converted to "username=example&password=password"
-      body: JSON.stringify({newTodo}),
+      body: JSON.stringify({ title: input.value }),
     });
     fetchTodos();
   } catch (error) {
     console.error(error.message);
   }
 });
-
-// Load todos when page loads
-fetchTodos();
+// npm run dev
