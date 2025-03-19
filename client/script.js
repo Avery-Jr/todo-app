@@ -46,4 +46,6 @@ todoForm.addEventListener("submit", async (e) => {
     console.error(error.message);
   }
 });
+// Load todos when page loads
+fetchTodos();
 // npm run dev
